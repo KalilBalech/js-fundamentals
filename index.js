@@ -266,7 +266,7 @@ function checarAnoBissexto(ano){
             else{
                 return false
             }
-            
+
         }
         else{
             return true
@@ -276,3 +276,95 @@ function checarAnoBissexto(ano){
         return false
     }
 }
+
+/*
+
+Escreva uma função que receba um array de números e retornará a soma de todos os números desse array
+
+*/
+
+function somarNumeros(array){
+    let soma=0;
+    array.forEach(e=>{
+        soma += e;
+    })
+    return soma
+}
+
+/*
+
+Você está trabalhando numa aplicação pessoal de controle de despesas. Na tela principal dessa aplicação, é
+possível adicionar produtos ou serviços, informando nome, categoria e preço. Uma funcionalidade que você
+está desenvolvendo no momento é a de somar o total das despesas.
+Crie uma função que receba um array de produtos e retorne o total das despesas.
+
+*/
+
+function despesasTotais(array){
+    let despesas = 0
+
+    array.forEach(e =>{
+        despesas += e.preco
+    })
+
+    return despesas
+}
+
+/*
+
+Numa aplicação Web de investimento financeiro da qual você faz parte da equipe de desenvolvimento,
+pretende-se adicionar a funcionalidade de calcular a média de um conjunto de números informados pelo
+usuário.
+Com o intuito de realizar esse cálculo, crie uma função que receba um array com uma quantidade
+indeterminada de números e retorne a média simples desses números.
+
+
+*/
+
+function calcularMedia(array){
+    let media = 0
+
+    array.forEach(e=>{
+        media += e
+    })
+
+    media /= array.length
+
+    return media
+
+}
+
+/*
+
+Faça uma função que recebe a base e a altura de um triângulo e retorne a área desse triângulo. A precisão
+deverá ser de duas casas decimais, arredondando se necessário.
+
+*/
+
+function areaDoTriangulo(base, altura){
+    let area = base*altura/2
+
+    area = (Math.round(area*100)/100).toFixed(2)
+
+    return area
+}
+
+/*
+
+Criar uma função que receba um array de números e retorne o menor número desse array.
+
+
+*/
+
+function menorNumero(array){
+    let menor = array[0]
+
+    array.forEach(e =>{
+        if(e<menor){
+            menor = e
+        }
+    })
+
+    return menor
+}
+
