@@ -368,3 +368,128 @@ function menorNumero(array){
     return menor
 }
 
+/*
+
+Desenvolva uma função que receba como parâmetro um número de 1 a 10. Internamente, na função, será
+gerado um número aleatório de 1 a 10. A função deverá retornar se o parâmetro de entrada foi igual ao número
+sorteado internamente. Se o valor fornecido foi o sorteado, retorne "Parabéns! O número sorteado foi o X". Se
+não for igual, retorne "Que pena! O número sorteado foi o X". X é o número que foi sorteado.
+
+
+*/
+
+function funcaoDaSorte(numero){
+    let sorteio, mensagem
+
+    sorteio = Math.floor(Math.random()*10)+1
+
+    if(numero === sorteio){
+        mensagem = "Parabéns! O número sorteado foi o "+numero
+    }
+    else{
+        mensagem = "Que pena! O número sorteado foi o"+sorteio
+    }
+
+    return mensagem
+}
+
+/*
+
+Criar uma função que receba uma string como parâmetro e conte quantas palavras tem nela.
+
+*/
+
+function contarPalavras(string){
+
+    let palavras = string.split(" ")
+
+    return palavras.length
+
+}
+
+/*
+
+Desenvolva uma função que recebe um caractere e uma string como parâmetros e retorne a quantidade de
+vezes que o caractere se repete na string. A função deverá ser case-sensitive, ou seja, irá diferenciar
+maiúsculas de minúsculas.
+
+*/
+
+function contarCaractere(char, frase){
+    let separacoes = frase.split(char)
+    let quantidade = separacoes.length -1
+    return quantidade
+}
+
+/*
+
+A fim de criar um mecanismo de busca para sua aplicação, você precisa iniciar criando uma função para
+identificar palavras semelhantes.
+Escreva uma função que recebe como primeiro parâmetro uma palavra e, como segundo parâmetro, um array
+de strings. A função deverá filtrar as palavras do array que contêm nelas a string do primeiro parâmetro.
+
+*/
+
+function buscarPalavrasSemelhantes(palavra, array){
+
+    let novoArray = []
+
+    array.forEach(e =>{
+        if(e.includes(palavra)){
+            novoArray.push(e)
+        }
+    })
+
+    return novoArray
+
+}
+
+// console.log(buscarPalavrasSemelhantes("en", ["semente", "coelho", "tente", "mente", "sente", "quando", "fila", "lente", "oi"]))
+
+/*
+
+Desenvolva uma função que receba uma string como parâmetro e retorne essa string somente com as
+consoantes, ou seja, sem as vogais.
+
+*/
+
+function removerVogais(palavra){
+
+    palavra = palavra.replace("a", "")
+    palavra = palavra.replace("e", "")
+    palavra = palavra.replace("i", "")
+    palavra = palavra.replace("o", "")
+    palavra = palavra.replace("u", "")
+
+    return palavra
+
+}
+
+//console.log(removerVogais("abcdefghijk"))
+
+/*
+
+Desenvolva uma função que recebe um objeto como parâmetro e retorne um outro objeto que corresponde ao
+ao objeto recebido como parâmetro, porém com as posições das chaves e valores invertidas, conforme
+exemplo a seguir:
+
+
+*/
+
+function inverter(objeto){
+
+    let pares = Object.entries(objeto)
+
+    pares.reverse()
+
+    pares.forEach(e =>{
+        delete objeto[e[0]]
+        objeto[e[0]] = e[1]
+    })
+
+    return objeto
+
+}
+
+// console.log(inverter({sobrenome:"Balech", idade: 21, caracteristica: "Heterotop", cabelo: "moreno", altura: 180, habilidade: "futebol"}))
+
