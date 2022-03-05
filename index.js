@@ -493,3 +493,108 @@ function inverter(objeto){
 
 // console.log(inverter({sobrenome:"Balech", idade: 21, caracteristica: "Heterotop", cabelo: "moreno", altura: 180, habilidade: "futebol"}))
 
+/*
+
+Elabore uma função que recebe dois parâmetros: o primeiro é um array de números e o segundo é um número
+que especifica uma quantidade de dígitos. Essa função deverá retornar somente aqueles números do array que
+têm a quantidade de dígitos indicada pelo segundo parâmetro.
+
+*/
+
+function filtrarPorQuantidadeDeDigitos(arrayDeNumeros, numeroQueEspecificaAQuantidadeDeDigitos){
+
+    let novoArrayDeNumeros = []
+    
+    let numero = Math.pow(10, numeroQueEspecificaAQuantidadeDeDigitos-1)
+
+    arrayDeNumeros.forEach(e =>{
+        if(e/numero >=1 && e/numero <10){
+            novoArrayDeNumeros.push(e)
+        }
+    })
+
+    return novoArrayDeNumeros
+
+}
+
+// console.log(filtrarPorQuantidadeDeDigitos([102, 29, 4, 3000, 234, 32, 1, 45, 100, 10, 1000, 9, 0, 6], 5))
+
+/*
+
+Crie uma função que recebe um array de números e retorna o segundo maior número presente nesse array.
+
+*/
+
+function segundoMaior(arrayDeNumeros){
+
+    let maior = arrayDeNumeros[0]
+
+    arrayDeNumeros.forEach(e =>{
+        if(e >maior){
+            maior = e
+        }
+    })
+
+    let segundoMaior
+
+    arrayDeNumeros[0] > arrayDeNumeros[1] ? segundoMaior = arrayDeNumeros[1] : segundoMaior = arrayDeNumeros[0]
+
+    arrayDeNumeros.forEach(e =>{
+        if(e < maior && e > segundoMaior ){
+            segundoMaior = e
+        }
+    })
+
+    return segundoMaior
+
+}
+
+// console.log(segundoMaior([ 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 0]))
+
+/*
+
+Elabore uma função que recebe um objeto com estudantes e suas notas. As notas de cada estudante estarão
+num array, conforme exemplo abaixo. Você deverá calcular a média da nota de cada aluno e retornar um objeto
+com os atributos nome e media, que indica o aluno que teve o melhor desempenho nas notas.
+
+*/
+
+function receberMelhorEstudante(objeto){
+
+    let media = 0
+    let melhorAluno = ""
+
+    let keys = Object.keys(objeto)
+
+    let tamanho = keys.length
+
+    let i 
+
+    for(i=0; i<tamanho; i++){
+        let novaMedia = calcularMedia(objeto[keys[i]])
+
+        if(novaMedia > media){
+            media = novaMedia
+            melhorAluno = keys[i]
+        }
+    }
+
+    let novoObjeto = {}
+
+    novoObjeto["nome"] = melhorAluno
+    novoObjeto["media"] = media
+
+    return novoObjeto
+
+}
+
+/*
+
+console.log(receberMelhorEstudante({
+    Joao: [8, 7.6, 8.9, 6], // média 7.625
+    Mariana: [9, 6.6, 7.9, 8], // média 7.875
+    Carla: [7, 7, 8, 9] // média 7.75
+    })
+    )
+
+*/
